@@ -69,6 +69,9 @@
         .sec{
             margin-bottom: 120px;
         }
+        .sec:last-of-type{
+            margin-bottom: 0;
+        }
         hr{
             height: 2px;
             background-color: #e0e0e0;
@@ -250,17 +253,21 @@
             margin: 0 auto;
             background-color: #3f51b5;
         }
-        /* blog style */
-        .blog h2,.blog li{
+        /* blog contact style */
+        .blog h2,.contact h2,.blog li,.contact fieldset{
             float: left;
             width: 268px;
             margin-right: 20px;
         }
-        .blog .blog-list{
+        .contact fieldset{
+            width: 412px;
+            border: none;
+        }
+        .blog .blog-list .contact form{
             float: left;
             width: 844px;
         }
-        .blog li:last-child{
+        .blog li:last-child,.contact fieldset:last-child{
             margin-right: 0;
         }
         .blog .blog-img{
@@ -277,7 +284,7 @@
         .blog li{
             perspective: 500px;
         }
-        .blog .li-content{
+        .blog li .li-content{
             transform: rotateY(0);
             backface-visibility: hidden;
             transition: 0.3s;
@@ -285,7 +292,52 @@
         .blog li:hover .li-content{
             transform: rotateY(360deg);
         }
-        /* blog style end */
+        form label, form input,form textarea{
+            width: 100%;
+        }
+        form label{
+            height: 0;
+            overflow: hidden;
+        }
+        form fieldset:first-child input,form textarea{
+            border: none;
+            margin-bottom: 12px;
+            padding: 12px 12px; 
+            border-bottom: 1px solid #757575;
+            background-color: #fff;
+            font-size: 12px;
+            color: #3f51b5;
+        }
+        form fieldset:first-child input::placeholder,form textarea{
+            font-size: 12px;
+            color: #3f51b5;
+        }
+        form textarea{
+            height: 141px;
+        }
+        form fieldset:last-child{
+            text-align: right;
+        }
+        form input[type="submit"]{
+            display: inline-block;
+            width: 124px;
+            padding: 12px 0;
+            background-color: #3f51b5;
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            border: none;
+        }
+        /* blog contact style end */
+        /* footer style */
+        .footer address{
+            padding: 10px 0;
+            font-size: 16px;
+            color: #3f51b5;
+            font-style: normal;
+            text-align: center;
+        }
+        /* footer style end */
     </style>
 </head>
 <body>
@@ -294,7 +346,7 @@
         <a href="#we-are">WE ARE 바로가기</a>
         <a href="#work">WORK 바로가기</a>
         <a href="#blog">BLOG 바로가기</a>
-        <a href="#contect">CONTACT US 바로가기</a>
+        <a href="#contact">CONTACT US 바로가기</a>
     </div>
     <!-- 끝 -->
     <section class="wrap">
@@ -309,7 +361,7 @@
                         <li><a href="#we-are">WE ARE</a></li>
                         <li><a href="#work">WORK</a></li>
                         <li><a href="#blog">BLOG</a></li>
-                        <li><a href="#contect">CONTACT US</a></li>
+                        <li><a href="#contact">CONTACT US</a></li>
                     </ul>
                 </nav>
             </div>
@@ -477,19 +529,23 @@
                 </div>
             </div>
         </section>
-        <section class="sec contect" id="contect">
-            <div class="container">
+        <section class="sec contact" id="contact">
+            <div class="container clearfix">
                 <h2>CONTACT</h2>
-                <form>
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Name">
-                    <label for="Phone">Phone</label>
-                    <input type="text" name="Phone" id="Phone" placeholder="Phone">
-                    <label for="Email">Email Address</label>
-                    <input type="text" name="Email" id="Email" placeholder="Email Address">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" placeholder="Message">Message</textarea>
-                    <input type="submit" value="SEND MESSAGE">
+                <form class="clearfix">
+                    <fieldset>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name">
+                        <label for="Phone">Phone</label>
+                        <input type="tel" name="Phone" id="Phone" placeholder="Phone">
+                        <label for="Email">Email Address</label>
+                        <input type="email" name="Email" id="Email" placeholder="Email Address">
+                    </fieldset>
+                    <fieldset>
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" placeholder="Message">Message</textarea>
+                        <input type="submit" value="SEND MESSAGE">
+                    </fieldset>    
                 </form>
             </div>
         </section>
